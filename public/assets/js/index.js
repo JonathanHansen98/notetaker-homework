@@ -3,9 +3,19 @@ var $noteText = $(".note-textarea");
 var $saveNoteBtn = $(".save-note");
 var $newNoteBtn = $(".new-note");
 var $noteList = $(".list-container .list-group");
-
+const express = require('express');
+const app = express();
+const PORT =  process.env.PORT || 8000
 // activeNote is used to keep track of the note in the textarea
 var activeNote = {};
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
+
+app.get("/", function (request, response) {
+  console.log(`/ called`);
+  response.sendFile(path.join(__dirname, "/index.html"));
+});
 
 // A function for getting all notes from the db
 var getNotes = function() {
