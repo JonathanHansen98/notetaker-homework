@@ -14,7 +14,7 @@ app.use(express.static("public"));
 
 app.get("/", function (request, response) {
   console.log(`/ called`);
-  response.sendFile(path.join(__dirname, "/index.html"));
+  response.sendFile(path.join(__dirname, "../index.html"));
 });
 
 // A function for getting all notes from the db
