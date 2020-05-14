@@ -2,10 +2,10 @@
   "name": "note-taker",
   "version": "1.0.0",
   "description": "",
-  "main": "public/assets/js/serve.js",
+  "main": "serve.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node serve.js"
+    "start":"node public/assets/js/serve.js"
   },
   "author": "",
   "license": "ISC",
