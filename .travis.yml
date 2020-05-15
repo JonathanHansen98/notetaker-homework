@@ -1,0 +1,22 @@
+jobs:
+  include:
+    - stage: unit tests
+      script: echo one
+    - stage: unit tests
+      script: echo two
+    - stage: deploy to staging
+      script: skip
+      deploy: &heroku
+        provider: heroku
+        app: sf-stages-staging
+        api_key: 0f2e442b-611e-4059-8550-6f684df4944b
+        on: sf-stages-demo
+    - stage: test staging
+      script: 'curl https://notetaker-homework.herokuapp.com/'
+    - stage: deploy to production
+      script: /bin/true
+      deploy:
+        <<: *heroku
+        app: sf-stages-production
+    - stage: test production
+      script: 'curl https://notetaker-homework.herokuapp.com/'
