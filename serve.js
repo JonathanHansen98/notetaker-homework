@@ -1,8 +1,7 @@
 const express = require('express');
 const path = require("path");
-const fs = require('fs')
 const app = express();
-const PORT = process.env.PORT || 8000
+const PORT =  8000
 var notes = require('./db/db.json')
 
 
@@ -33,10 +32,10 @@ app.get("/api/notes/:id", (req, res) => {
   console.log(query)
   res.json(query)
 });
-app.delete("/notes/api/notes/:id", (req,res) => {
+app.delete("/api/notes/:id", (req,res) => {
   console.log(req.params.id)
   notes = notes.filter(note => note.id !== req.params.id)
-  fs.writeFile('./db/db.json')
+  console.log(notes)
 })
 app.listen(PORT, () => {
   console.log("Server started")
