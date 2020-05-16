@@ -41,7 +41,7 @@ module.exports = function (app) {
       res.json(query)
     })
   });
-  app.delete("/notes/api/notes/:id", (req, res) => {
+  app.delete("/api/notes/:id", (req, res) => {
     console.log(req.params.id);
     const paramId = req.params.id;
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
