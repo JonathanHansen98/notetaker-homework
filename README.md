@@ -6,7 +6,7 @@ A full stack app that uses express routing to add, delete, and view notes from a
 ## Usage
 Type a note title and body, hit the save icon in the top right and your note will be stored in the servers memory. You and other people can view these notes later.
 
-<img src="https://imgur.com/CdnxY6H" width="200" />
+<img src="https://i.imgur.com/CdnxY6H.png" width="400" />
 
 ## View the deployed app:
 https://notetaker-homework.herokuapp.com/
