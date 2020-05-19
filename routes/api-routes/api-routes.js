@@ -11,12 +11,10 @@ module.exports = function (app) {
   app.post("/api/notes", (req, res) => {
     const newNote = req.body
     
-    // Read db.json file
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
       if (err) throw err;
-      // Parse json data and store in var
       var noteList = JSON.parse(data);
-    newNote.id = (req.body.title.split(" "))[0].toLowerCase() + (noteList.length + 1);
+      newNote.id = (req.body.title.split(" "))[0].toLowerCase() + (noteList.length + 1);
   
       noteList.push(newNote);  
 
@@ -24,7 +22,7 @@ module.exports = function (app) {
   
       fs.writeFile('./db/db.json',notesString, err => {
         if (err) throw err;
-        console.log(`Note Added:${notesString}`)
+        console.log(`Note Added:${JSON.stringify(newNote)}`)
       })
     })
   });
