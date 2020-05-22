@@ -19,7 +19,7 @@ module.exports = function (app) {
     const notesString = JSON.stringify(noteList)
     fs.writeFileSync('./db/db.json',notesString)
     console.log(`Note Added:${JSON.stringify(newNote)}`)
-    
+    res.json(noteList)
   });
   app.get("/api/notes/:id", (req, res) => {
     const idRequest = req.params.id
@@ -33,5 +33,6 @@ module.exports = function (app) {
     var filteredNotes = JSON.parse(data).filter(note => note.id !== paramId)
     fs.writeFileSync('./db/db.json',JSON.stringify(filteredNotes))
     console.log(`Note deleted`)
+    res.json({success: true})
     })
 };
